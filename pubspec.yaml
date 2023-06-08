@@ -114,6 +114,8 @@ dev_dependencies:
 
   dots_indicator: ^2.1.0
 
+  google_sign_in: ^5.3.3
+
 
   firebase_messaging: ^14.1.4
 
