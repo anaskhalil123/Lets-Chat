@@ -15,15 +15,12 @@ import 'package:flutter/foundation.dart'
 /// );
 /// ```
 class DefaultFirebaseOptions {
-
   static FirebaseOptions get currentPlatform {
-  
     if (kIsWeb) {
       throw UnsupportedError(
         'DefaultFirebaseOptions have not been configured for web - '
         'you can reconfigure this by running the FlutterFire CLI again.',
       );
-  
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
