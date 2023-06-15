@@ -32,8 +32,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         initialRoute: AppPages.INITIAL,
-        getPages: AppPages.routes,
-        debugShowCheckedModeBanner: false,
+        getPages: AppPages.routes,      
       ),
     );
   }
