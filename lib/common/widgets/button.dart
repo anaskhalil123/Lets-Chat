@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_chat/common/values/values.dart';
+import 'package:firebase_chating/common/values/values.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 ///
@@ -14,7 +14,7 @@ Widget btnFlatButtonWidget({
   String fontName = "Montserrat",
   FontWeight fontWeight = FontWeight.w400,
 }) {
-  return Container(
+  return SizedBox(
     width: width.w,
     height: height.h,
     child: TextButton(
@@ -65,7 +65,7 @@ Widget btnFlatButtonBorderOnlyWidget({
   double height = 44,
   required String iconFileName,
 }) {
-  return Container(
+  return SizedBox(
     width: width.w,
     height: height.h,
     child: TextButton(
@@ -94,10 +94,10 @@ Widget btnFlatButtonBorderOnlyWidget({
           borderRadius: Radii.k6pxRadius,
         )),
       ),
+      onPressed: onPressed,
       child: Image.asset(
         "assets/images/icons-$iconFileName.png",
       ),
-      onPressed: onPressed,
     ),
   );
 }

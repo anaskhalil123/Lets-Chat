@@ -4,24 +4,27 @@ class Msgcontent {
   final String? uid;
   final String? content;
   final String? type;
+  final String? imageUrl;
   final Timestamp? addtime;
 
   Msgcontent({
     this.uid,
     this.content,
     this.type,
+    this.imageUrl,
     this.addtime,
   });
 
   factory Msgcontent.fromFirestore(
-      DocumentSnapshot<Map<String, dynamic>> snapshot,
-      SnapshotOptions? options,
-      ) {
+    DocumentSnapshot<Map<String, dynamic>> snapshot,
+    SnapshotOptions? options,
+  ) {
     final data = snapshot.data();
     return Msgcontent(
       uid: data?['uid'],
       content: data?['content'],
       type: data?['type'],
+      imageUrl: data?['imageUrl'],
       addtime: data?['addtime'],
     );
   }
@@ -30,7 +33,8 @@ class Msgcontent {
     return {
       if (uid != null) "uid": uid,
       if (content != null) "content": content,
-      if (type != null) "type": type,
+      if (type != null) "type": type else "type": null,
+      if (imageUrl != null) "imageUrl": imageUrl else "imageUrl": null,
       if (addtime != null) "addtime": addtime,
     };
   }

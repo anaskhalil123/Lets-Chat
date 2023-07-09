@@ -1,5 +1,6 @@
-import 'package:firebase_chat/common/values/values.dart';
-import 'package:firebase_chat/pages/application/controller.dart';
+import 'package:firebase_chating/common/values/values.dart';
+import 'package:firebase_chating/pages/application/controller.dart';
+import 'package:firebase_chating/pages/contact/index.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -8,12 +9,12 @@ class ApplicationPage extends GetView<ApplicationController> {
 
   Widget _buildPageView(){
     return PageView(
-      physics: NeverScrollableScrollPhysics(),
+      physics: NeverScrollableScrollPhysics(), // stop the scrolling with touch
       controller: controller.pageController,
       onPageChanged: controller.handlePageChanged,
       children: [
         Container(child: Text("chat"),),
-        Container(child: Text("contact"),),
+        ContactPage(),
         Container(child: Text("profile"),),
       ],
     );

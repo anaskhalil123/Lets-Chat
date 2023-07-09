@@ -2,7 +2,7 @@
     package="com.example.firebase_chat">
    <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="firebase_chat"
+        android:label="firebase_chating"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

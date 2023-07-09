@@ -1,5 +1,5 @@
-import 'package:firebase_chat/common/values/colors.dart';
-import 'package:firebase_chat/pages/application/state.dart';
+import 'package:firebase_chating/common/values/colors.dart';
+import 'package:firebase_chating/pages/application/state.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';

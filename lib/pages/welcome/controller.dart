@@ -1,5 +1,5 @@
-import 'package:firebase_chat/common/routes/names.dart';
-import 'package:firebase_chat/pages/welcome/state.dart';
+import 'package:firebase_chating/common/routes/names.dart';
+import 'package:firebase_chating/pages/welcome/state.dart';
 import 'package:get/get.dart';
 
 import '../../common/store/config.dart';

@@ -1,4 +1,4 @@
-import 'package:firebase_chat/pages/welcome/controller.dart';
+import 'package:firebase_chating/pages/welcome/controller.dart';
 import 'package:get/get.dart';
 
 class WelcomeBinding implements Bindings{

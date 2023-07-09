@@ -19,6 +19,7 @@ class UserData {
     this.addtime,
   });
 
+  // fromFirestore means fromJson
   factory UserData.fromFirestore(
       DocumentSnapshot<Map<String, dynamic>> snapshot,
       SnapshotOptions? options,
@@ -34,7 +35,7 @@ class UserData {
       addtime: data?['addtime'],
     );
   }
-
+// toFirestore means toJson
   Map<String, dynamic> toFirestore() {
     return {
       if (id != null) "id": id,

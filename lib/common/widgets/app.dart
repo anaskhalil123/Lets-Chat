@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:firebase_chat/common/values/values.dart';
+import 'package:firebase_chating/common/values/values.dart';
 
 ///  AppBar
 AppBar transparentAppBar({
@@ -13,7 +13,7 @@ AppBar transparentAppBar({
     elevation: 0,
     flexibleSpace: Container(
       decoration: BoxDecoration(
-        gradient: LinearGradient(colors: [
+        gradient: LinearGradient(colors: const [
           Color.fromARGB(255, 176, 106, 231),
           Color.fromARGB(255, 166, 112, 232),
           Color.fromARGB(255, 131, 123, 232),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_chat/common/values/values.dart';
+import 'package:firebase_chating/common/values/values.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 ///
@@ -53,7 +53,7 @@ Widget inputEmailEdit({
     decoration: BoxDecoration(
       color: AppColors.primaryBackground,
       borderRadius: Radii.k6pxRadius,
-      boxShadow: [
+      boxShadow: const [
         BoxShadow(
           color: Color.fromARGB(41, 0, 0, 0),
           offset: Offset(0, 1),

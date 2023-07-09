@@ -1,7 +1,7 @@
-import 'package:firebase_chat/common/entities/entities.dart';
-import 'package:firebase_chat/common/routes/names.dart';
-import 'package:firebase_chat/common/widgets/toast.dart';
-import 'package:firebase_chat/pages/sign_in/state.dart';
+import 'package:firebase_chating/common/entities/entities.dart';
+import 'package:firebase_chating/common/routes/names.dart';
+import 'package:firebase_chating/common/widgets/toast.dart';
+import 'package:firebase_chating/pages/sign_in/state.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -22,7 +22,7 @@ class SignInController extends GetxController {
       if (user != null) {
         //save the user in FirebaseAuth
         final gAuthentication = await user.authentication;
-        final gCredential = await GoogleAuthProvider.credential(
+        final gCredential = GoogleAuthProvider.credential(
           idToken: gAuthentication.idToken,
           accessToken: gAuthentication.accessToken,
         );

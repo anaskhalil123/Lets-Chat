@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_chat/common/routes/routes.dart';
-import 'package:firebase_chat/common/store/store.dart';
+import 'package:firebase_chating/common/routes/routes.dart';
+import 'package:firebase_chating/common/store/store.dart';
 
 import 'package:get/get.dart';
 
