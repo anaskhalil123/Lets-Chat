@@ -1,7 +1,9 @@
-import 'package:firebase_chating/pages/contact/controller.dart';
+import 'package:Lets_Chat/pages/contact/controller.dart';
+import 'package:Lets_Chat/pages/profile/controller.dart';
 import 'package:get/get.dart';
 
-import '../contact/controller.dart';
+import '../contact/index.dart';
+import '../message/index.dart';
 import 'controller.dart';
 
 class ApplicationBinding implements Bindings {
@@ -13,5 +15,7 @@ class ApplicationBinding implements Bindings {
 
     Get.lazyPut<ApplicationController>(() => ApplicationController());
     Get.lazyPut<ContactController>(() => ContactController());
+    Get.lazyPut<MessageController>(() => MessageController());
+    Get.lazyPut<ProfileController>(() => ProfileController());
   }
 }

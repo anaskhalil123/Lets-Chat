@@ -1,8 +1,8 @@
 import 'dart:io';
-
-import 'package:firebase_chating/common/entities/entities.dart';
-import 'package:firebase_chating/common/store/store.dart';
-import 'package:firebase_chating/pages/chat/state.dart';
+import 'dart:convert';
+import 'package:Lets_Chat/common/entities/entities.dart';
+import 'package:Lets_Chat/common/store/store.dart';
+import 'package:Lets_Chat/pages/chat/state.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:path/path.dart';
@@ -13,7 +13,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 class ChatController extends GetxController {
   ChatController();
   final state = ChatState();
-  var doc_id = null;
+  String doc_id = '';
   File? imageFile;
   final textController = TextEditingController();
   ScrollController msgScrolling = ScrollController();
@@ -21,12 +21,13 @@ class ChatController extends GetxController {
   final user_id = UserStore.to.token;
   final db = FirebaseFirestore.instance;
   final storage = FirebaseStorage.instance;
+  RepliedMsgContent? repliedMsgContent;
 
   @override
   void onInit() {
     super.onInit();
     var data = Get.parameters;
-    doc_id = data['doc_id'];
+    doc_id = data['doc_id'] ?? '';
     state.to_uid.value = data['to_uid'] ?? "";
     state.to_avatar.value = data['to_avatar'] ?? "";
     state.to_name.value = data['to_name'] ?? "";
@@ -35,15 +36,60 @@ class ChatController extends GetxController {
 
   sendMessage() async {
     String sendContent = textController.text;
-    final content = Msgcontent(
-      uid: user_id,
-      content: sendContent,
-      addtime: Timestamp.now(),
-    );
+    final Msgcontent content;
+    if (state.isReplaying.value) {
+      content = Msgcontent(
+        uid: user_id,
+        content: sendContent,
+        repliedMessage: repliedMsgContent,
+        addtime: Timestamp.now(),
+      );
+    } else {
+      content = Msgcontent(
+        uid: user_id,
+        content: sendContent,
+        addtime: Timestamp.now(),
+      );
+    }
 
+    if (doc_id.isEmpty) {
+      // getProfile get userdata as String
+      String profile = await UserStore.to.getProfile();
+      UserLoginResponseEntity userdata =
+          UserLoginResponseEntity.fromJson(jsonDecode(profile));
+
+      var msgData = Msg(
+        from_uid: userdata.accessToken,
+        from_avatar: userdata.photoUrl,
+        from_name: userdata.displayName,
+        to_uid: state.to_uid.value,
+        to_name: state.to_name.value,
+        to_avatar: state.to_avatar.value,
+        last_msg: "",
+        last_time: Timestamp.now(),
+        msg_num: 0,
+      );
+
+      await db
+          .collection("message")
+          .withConverter(
+            fromFirestore: Msg.fromFirestore,
+            toFirestore: (Msg msg, options) => msg.toFirestore(),
+          )
+          .add(msgData)
+          .then((value) {
+        doc_id = value.id;
+      });
+      uploadMessage(doc_id, content, sendContent);
+    } else {
+      uploadMessage(doc_id, content, sendContent);
+    }
+  }
+
+  uploadMessage(String docId, Msgcontent content, String sendContent) async {
     await db
         .collection("message")
-        .doc(doc_id)
+        .doc(docId)
         .collection("msglist")
         .withConverter(
             fromFirestore: Msgcontent.fromFirestore,
@@ -52,10 +98,11 @@ class ChatController extends GetxController {
         .then((value) {
       print(value.id);
       textController.clear();
+      if (state.isReplaying.value) unSwipedMessage();
       Get.focusScope?.unfocus();
     });
 
-    await db.collection("message").doc(doc_id).update({
+    await db.collection("message").doc(docId).update({
       "last_msg": sendContent,
       "last_time": Timestamp.now(),
     });
@@ -100,6 +147,7 @@ class ChatController extends GetxController {
   void sendMessageWithImage(BuildContext context) async {
     print('send: Enter the method');
     String sendContent = textController.text;
+    final Msgcontent content;
     final scaffoldMessenger = ScaffoldMessenger.of(context);
     scaffoldMessenger
         .showSnackBar(SnackBar(content: Text('uploading the image')));
@@ -110,13 +158,24 @@ class ChatController extends GetxController {
 
     print('send: finish the uploading');
 
-    final content = Msgcontent(
-      uid: user_id,
-      content: sendContent,
-      type: 'image',
-      imageUrl: pickedImageUrl,
-      addtime: Timestamp.now(),
-    );
+    if (state.isReplaying.value) {
+      content = Msgcontent(
+        uid: user_id,
+        content: sendContent,
+        type: 'image',
+        imageUrl: pickedImageUrl,
+        repliedMessage: repliedMsgContent,
+        addtime: Timestamp.now(),
+      );
+    } else {
+      content = Msgcontent(
+        uid: user_id,
+        content: sendContent,
+        type: 'image',
+        imageUrl: pickedImageUrl,
+        addtime: Timestamp.now(),
+      );
+    }
 
     await db
         .collection("message")
@@ -129,6 +188,7 @@ class ChatController extends GetxController {
         .then((value) {
       print(value.id);
       textController.clear();
+      if (state.isReplaying.value) unSwipedMessage();
       Get.focusScope?.unfocus();
     });
 
@@ -138,5 +198,17 @@ class ChatController extends GetxController {
       "last_time": Timestamp.now(),
     });
     print('send: finish the storing in firebase');
+    imageFile = null;
+  }
+
+  void swipedMessage(RepliedMsgContent repliedMsgContent) {
+    contentNode.requestFocus();
+    state.isReplaying.value = true;
+    this.repliedMsgContent = repliedMsgContent;
+  }
+
+  void unSwipedMessage() {
+    state.isReplaying.value = false;
+    repliedMsgContent = null;
   }
 }

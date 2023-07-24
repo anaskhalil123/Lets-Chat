@@ -1,6 +1,6 @@
-import 'package:firebase_chating/common/values/values.dart';
-import 'package:firebase_chating/common/widgets/app.dart';
-import 'package:firebase_chating/pages/contact/widgets/contact_list.dart';
+import 'package:Lets_Chat/common/values/values.dart';
+import 'package:Lets_Chat/common/widgets/app.dart';
+import 'package:Lets_Chat/pages/contact/widgets/contact_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';

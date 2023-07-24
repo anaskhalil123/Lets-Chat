@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:firebase_chating/common/values/values.dart';
+import 'package:Lets_Chat/common/values/values.dart';
 
 ///  AppBar
 AppBar transparentAppBar({
@@ -18,12 +18,10 @@ AppBar transparentAppBar({
           Color.fromARGB(255, 166, 112, 232),
           Color.fromARGB(255, 131, 123, 232),
           Color.fromARGB(255, 104, 132, 231),
-        ],transform: GradientRotation(90)),
+        ], transform: GradientRotation(90)),
       ),
     ),
-    title: title != null
-        ? Center(child: title)
-        : null,
+    title: title != null ? Center(child: title) : null,
     leading: leading,
     actions: actions,
   );

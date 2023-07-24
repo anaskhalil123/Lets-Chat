@@ -1,6 +1,6 @@
-import 'package:firebase_chating/common/entities/entities.dart';
-import 'package:firebase_chating/common/values/colors.dart';
-import 'package:firebase_chating/pages/contact/controller.dart';
+import 'package:Lets_Chat/common/entities/entities.dart';
+import 'package:Lets_Chat/common/values/colors.dart';
+import 'package:Lets_Chat/pages/contact/controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cached_network_image/cached_network_image.dart';

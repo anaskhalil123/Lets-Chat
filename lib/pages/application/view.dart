@@ -1,36 +1,38 @@
-import 'package:firebase_chating/common/values/values.dart';
-import 'package:firebase_chating/pages/application/controller.dart';
-import 'package:firebase_chating/pages/contact/index.dart';
+import 'package:Lets_Chat/common/values/values.dart';
+import 'package:Lets_Chat/pages/application/controller.dart';
+import 'package:Lets_Chat/pages/contact/index.dart';
+import 'package:Lets_Chat/pages/message/index.dart';
+import 'package:Lets_Chat/pages/profile/index.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ApplicationPage extends GetView<ApplicationController> {
   const ApplicationPage({super.key});
 
-  Widget _buildPageView(){
+  Widget _buildPageView() {
     return PageView(
       physics: NeverScrollableScrollPhysics(), // stop the scrolling with touch
       controller: controller.pageController,
       onPageChanged: controller.handlePageChanged,
       children: [
-        Container(child: Text("chat"),),
+        MessagePage(),
         ContactPage(),
-        Container(child: Text("profile"),),
+        ProfilePage(),
       ],
     );
   }
 
   Widget _buildBottomNavigationBar() {
     return Obx(
-      ()=> BottomNavigationBar(
-      items: controller.bottomTabs,
-      currentIndex: controller.state.page,
-      type: BottomNavigationBarType.fixed,
-      onTap: controller.handleNavBarTap,
-      showUnselectedLabels: true,
-      showSelectedLabels: true,
-      unselectedItemColor: AppColors.tabBarElement,
-      selectedItemColor: AppColors.thirdElementText,
+      () => BottomNavigationBar(
+        items: controller.bottomTabs,
+        currentIndex: controller.state.page,
+        type: BottomNavigationBarType.fixed,
+        onTap: controller.handleNavBarTap,
+        showUnselectedLabels: true,
+        showSelectedLabels: true,
+        unselectedItemColor: AppColors.tabBarElement,
+        selectedItemColor: AppColors.thirdElementText,
       ),
     );
   }

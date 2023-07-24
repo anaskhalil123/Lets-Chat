@@ -3,9 +3,9 @@ import 'dart:async';
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
-import 'package:firebase_chating/common/store/store.dart';
-import 'package:firebase_chating/common/utils/utils.dart';
-import 'package:firebase_chating/common/values/values.dart';
+import 'package:Lets_Chat/common/store/store.dart';
+import 'package:Lets_Chat/common/utils/utils.dart';
+import 'package:Lets_Chat/common/values/values.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart' hide FormData;
 
@@ -125,7 +125,7 @@ class HttpUtil {
         {
           try {
             int errCode =
-            error.response != null ? error.response!.statusCode! : -1;
+                error.response != null ? error.response!.statusCode! : -1;
             // String errMsg = error.response.statusMessage;
             // return ErrorEntity(code: errCode, message: errMsg);
             switch (errCode) {
@@ -195,15 +195,15 @@ class HttpUtil {
   /// cacheKey 缓存key
   /// cacheDisk 是否磁盘缓存
   Future get(
-      String path, {
-        Map<String, dynamic>? queryParameters,
-        Options? options,
-        bool refresh = false,
-        bool noCache = !CACHE_ENABLE,
-        bool list = false,
-        String cacheKey = '',
-        bool cacheDisk = false,
-      }) async {
+    String path, {
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+    bool refresh = false,
+    bool noCache = !CACHE_ENABLE,
+    bool list = false,
+    String cacheKey = '',
+    bool cacheDisk = false,
+  }) async {
     Options requestOptions = options ?? Options();
     // requestOptions.extra ??= <String, >{};
     requestOptions.extra!.addAll({
@@ -230,11 +230,11 @@ class HttpUtil {
 
   /// restful post 操作
   Future post(
-      String path, {
-        dynamic data,
-        Map<String, dynamic>? queryParameters,
-        Options? options,
-      }) async {
+    String path, {
+    dynamic data,
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+  }) async {
     Options requestOptions = options ?? Options();
     requestOptions.headers = requestOptions.headers ?? {};
     Map<String, dynamic>? authorization = getAuthorizationHeader();
@@ -253,11 +253,11 @@ class HttpUtil {
 
   /// restful put 操作
   Future put(
-      String path, {
-        dynamic data,
-        Map<String, dynamic>? queryParameters,
-        Options? options,
-      }) async {
+    String path, {
+    dynamic data,
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+  }) async {
     Options requestOptions = options ?? Options();
     requestOptions.headers = requestOptions.headers ?? {};
     Map<String, dynamic>? authorization = getAuthorizationHeader();
@@ -276,11 +276,11 @@ class HttpUtil {
 
   /// restful patch 操作
   Future patch(
-      String path, {
-        dynamic data,
-        Map<String, dynamic>? queryParameters,
-        Options? options,
-      }) async {
+    String path, {
+    dynamic data,
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+  }) async {
     Options requestOptions = options ?? Options();
     requestOptions.headers = requestOptions.headers ?? {};
     Map<String, dynamic>? authorization = getAuthorizationHeader();
@@ -299,11 +299,11 @@ class HttpUtil {
 
   /// restful delete 操作
   Future delete(
-      String path, {
-        dynamic data,
-        Map<String, dynamic>? queryParameters,
-        Options? options,
-      }) async {
+    String path, {
+    dynamic data,
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+  }) async {
     Options requestOptions = options ?? Options();
     requestOptions.headers = requestOptions.headers ?? {};
     Map<String, dynamic>? authorization = getAuthorizationHeader();
@@ -322,11 +322,11 @@ class HttpUtil {
 
   /// restful post form 表单提交操作
   Future postForm(
-      String path, {
-        dynamic data,
-        Map<String, dynamic>? queryParameters,
-        Options? options,
-      }) async {
+    String path, {
+    dynamic data,
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+  }) async {
     Options requestOptions = options ?? Options();
     requestOptions.headers = requestOptions.headers ?? {};
     Map<String, dynamic>? authorization = getAuthorizationHeader();
@@ -345,12 +345,12 @@ class HttpUtil {
 
   /// restful post Stream 流数据
   Future postStream(
-      String path, {
-        dynamic data,
-        int dataLength = 0,
-        Map<String, dynamic>? queryParameters,
-        Options? options,
-      }) async {
+    String path, {
+    dynamic data,
+    int dataLength = 0,
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+  }) async {
     Options requestOptions = options ?? Options();
     requestOptions.headers = requestOptions.headers ?? {};
     Map<String, dynamic>? authorization = getAuthorizationHeader();

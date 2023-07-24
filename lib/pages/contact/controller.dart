@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:firebase_chating/common/entities/entities.dart';
-import 'package:firebase_chating/common/routes/names.dart';
-import 'package:firebase_chating/common/store/store.dart';
-import 'package:firebase_chating/pages/contact/state.dart';
+import 'package:Lets_Chat/common/entities/entities.dart';
+import 'package:Lets_Chat/common/routes/names.dart';
+import 'package:Lets_Chat/common/store/store.dart';
+import 'package:Lets_Chat/pages/contact/state.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:get/get.dart';
@@ -21,6 +21,7 @@ class ContactController extends GetxController {
   }
 
   goChat(UserData toUserdata) async {
+    // print('user data ${toUserdata.id}');
     var fromMessages = await db
         .collection("message")
         .withConverter(
@@ -41,41 +42,45 @@ class ContactController extends GetxController {
 
     if (fromMessages.docs.isEmpty && toMessages.docs.isEmpty) {
       // getProfile get userdata as String
-      String profile = await UserStore.to.getProfile();
-      UserLoginResponseEntity userdata =
-          UserLoginResponseEntity.fromJson(jsonDecode(profile));
+      // String profile = await UserStore.to.getProfile();
+      // UserLoginResponseEntity userdata =
+      //     UserLoginResponseEntity.fromJson(jsonDecode(profile));
 
-      var msgData = Msg(
-        from_uid: userdata.accessToken,
-        to_uid: toUserdata.id,
-        from_avatar: userdata.displayName,
-        to_name: toUserdata.name,
-        to_avatar: toUserdata.photourl,
-        last_msg: "",
-        last_time: Timestamp.now(),
-        msg_num: 0,
-      );
+      // var msgData = Msg(
+      //   from_uid: userdata.accessToken,
+      //   from_avatar: userdata.photoUrl,
+      //   from_name: userdata.displayName,
+      //   to_uid: toUserdata.id,
+      //   to_name: toUserdata.name,
+      //   to_avatar: toUserdata.photourl,
+      //   last_msg: "",
+      //   last_time: Timestamp.now(),
+      //   msg_num: 0,
+      // );
 
-      db
-          .collection("message")
-          .withConverter(
-            fromFirestore: Msg.fromFirestore,
-            toFirestore: (Msg msg, options) => msg.toFirestore(),
-          )
-          .add(msgData)
-          .then((value) {
-        Get.toNamed(AppRoutes.Chat, parameters: {
-          //these parameters will sent to "/chat", 
-          //which means its binding(it inject the controller),
-          //so the parameters finally will appear in the controller
-          "doc_id": value.id,
-          "to_uid": toUserdata.id ?? "",
-          "to_name": toUserdata.name ?? "",
-          "to_avatar": toUserdata.photourl ?? "",
-        });
+      // db
+      //     .collection("message")
+      //     .withConverter(
+      //       fromFirestore: Msg.fromFirestore,
+      //       toFirestore: (Msg msg, options) => msg.toFirestore(),
+      //     )
+      //     .add(msgData)
+      //     .then((value) {
+      print(
+          'controller: go to chat without have document in message collection');
+      Get.toNamed(AppRoutes.Chat, parameters: {
+        //these parameters will sent to "/chat",
+        //which means its binding(it inject the controller),
+        //so the parameters finally will appear in the controller
+        // "doc_id": value.id,
+
+        "to_uid": toUserdata.id ?? "",
+        "to_name": toUserdata.name ?? "",
+        "to_avatar": toUserdata.photourl ?? "",
       });
-    }else {
-      if(fromMessages.docs.isNotEmpty){
+      // });
+    } else {
+      if (fromMessages.docs.isNotEmpty) {
         Get.toNamed(AppRoutes.Chat, parameters: {
           "doc_id": fromMessages.docs.first.id,
           "to_uid": toUserdata.id ?? "",
@@ -84,7 +89,7 @@ class ContactController extends GetxController {
         });
       }
 
-      if(toMessages.docs.isNotEmpty){
+      if (toMessages.docs.isNotEmpty) {
         Get.toNamed(AppRoutes.Chat, parameters: {
           "doc_id": toMessages.docs.first.id,
           "to_uid": toUserdata.id ?? "",

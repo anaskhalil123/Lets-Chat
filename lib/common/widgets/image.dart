@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:firebase_chating/common/values/values.dart';
+import 'package:Lets_Chat/common/values/values.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 Widget netImageCached(

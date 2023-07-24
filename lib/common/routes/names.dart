@@ -9,10 +9,9 @@ class AppRoutes {
   // message
   static const Message = '/message';
   // me
-  static const Me = '/me';
+  static const Profile = '/profile';
   //chat
   static const Chat = '/chat';
 
   static const Photoimgview = '/photoimgview';
-
 }

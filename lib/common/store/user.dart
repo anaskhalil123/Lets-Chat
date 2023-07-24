@@ -1,7 +1,7 @@
 import 'dart:convert';
-import 'package:firebase_chating/common/entities/entities.dart';
-import 'package:firebase_chating/common/services/services.dart';
-import 'package:firebase_chating/common/values/values.dart';
+import 'package:Lets_Chat/common/entities/entities.dart';
+import 'package:Lets_Chat/common/services/services.dart';
+import 'package:Lets_Chat/common/values/values.dart';
 import 'package:get/get.dart';
 
 class UserStore extends GetxController {
@@ -41,7 +41,7 @@ class UserStore extends GetxController {
     // var result = await UserAPI.profile();
     // _profile(result);
     // _isLogin.value = true;
-   return StorageService.to.getString(STORAGE_USER_PROFILE_KEY);
+    return StorageService.to.getString(STORAGE_USER_PROFILE_KEY);
   }
 
   // 保存 profile
@@ -53,7 +53,7 @@ class UserStore extends GetxController {
 
   // 注销
   Future<void> onLogout() async {
-   // if (_isLogin.value) await UserAPI.logout();
+    // if (_isLogin.value) await UserAPI.logout();
     await StorageService.to.remove(STORAGE_USER_TOKEN_KEY);
     await StorageService.to.remove(STORAGE_USER_PROFILE_KEY);
     _isLogin.value = false;

@@ -1,5 +1,5 @@
-import 'package:firebase_chating/common/widgets/button.dart';
-import 'package:firebase_chating/pages/sign_in/controller.dart';
+import 'package:Lets_Chat/common/widgets/button.dart';
+import 'package:Lets_Chat/pages/sign_in/controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

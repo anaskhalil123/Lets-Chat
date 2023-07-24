@@ -1,5 +1,5 @@
-import 'package:firebase_chating/common/values/colors.dart';
-import 'package:firebase_chating/pages/application/state.dart';
+import 'package:Lets_Chat/common/values/colors.dart';
+import 'package:Lets_Chat/pages/application/state.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -13,11 +13,11 @@ class ApplicationController extends GetxController {
   late final PageController pageController;
   late final List<BottomNavigationBarItem> bottomTabs;
 
-  void handlePageChanged(int index){
+  void handlePageChanged(int index) {
     state.page = index;
   }
 
-  void handleNavBarTap(int index){
+  void handleNavBarTap(int index) {
     pageController.jumpToPage(index);
   }
 

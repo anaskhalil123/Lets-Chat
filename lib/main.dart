@@ -1,7 +1,7 @@
-import 'package:firebase_chating/common/routes/pages.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
+import 'common/routes/pages.dart';
 import 'common/services/storage.dart';
 import 'common/store/config.dart';
 import 'common/store/user.dart';

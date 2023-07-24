@@ -1,11 +1,13 @@
-import 'package:firebase_chating/common/middlewares/middlewares.dart';
+import '../../pages/message/index.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../pages/application/index.dart';
 import '../../pages/contact/index.dart';
 import '../../pages/sign_in/index.dart';
+import '../../pages/profile/index.dart';
 import '../../pages/chat/index.dart';
 import '../../pages/welcome/index.dart';
+import '../middlewares/router_welcome.dart';
 import 'routes.dart';
 
 class AppPages {
@@ -45,14 +47,22 @@ class AppPages {
       page: () => ChatPage(),
       binding: ChatBinding(),
     ),
-
+    GetPage(
+      name: AppRoutes.Message,
+      page: () => MessagePage(),
+      binding: MessageBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.Profile,
+      page: () => ProfilePage(),
+      binding: ProfileBinding(),
+    ),
 /*
     //消息
     GetPage(name: AppRoutes.Message, page: () => MessagePage(), binding: MessageBinding()),
     //我的
-    GetPage(name: AppRoutes.Me, page: () => MePage(), binding: MeBinding()),
+   
     //聊天详情
     GetPage(name: AppRoutes.Photoimgview, page: () => PhotoImgViewPage(), binding: PhotoImgViewBinding()),*/
-    
   ];
 }

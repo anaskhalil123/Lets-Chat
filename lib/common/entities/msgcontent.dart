@@ -1,3 +1,4 @@
+import 'package:Lets_Chat/common/entities/repliedmessage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Msgcontent {
@@ -6,6 +7,7 @@ class Msgcontent {
   final String? type;
   final String? imageUrl;
   final Timestamp? addtime;
+  final RepliedMsgContent? repliedMessage;
 
   Msgcontent({
     this.uid,
@@ -13,6 +15,7 @@ class Msgcontent {
     this.type,
     this.imageUrl,
     this.addtime,
+    this.repliedMessage,
   });
 
   factory Msgcontent.fromFirestore(
@@ -26,6 +29,9 @@ class Msgcontent {
       type: data?['type'],
       imageUrl: data?['imageUrl'],
       addtime: data?['addtime'],
+      repliedMessage: (data?['repliedMessage'] == null)
+          ? null
+          : RepliedMsgContent.fromFirestore(data?['repliedMessage'], options),
     );
   }
 
@@ -36,6 +42,10 @@ class Msgcontent {
       if (type != null) "type": type else "type": null,
       if (imageUrl != null) "imageUrl": imageUrl else "imageUrl": null,
       if (addtime != null) "addtime": addtime,
+      if (repliedMessage != null)
+        "repliedMessage": repliedMessage!.toFirestore()
+      else
+        'repliedMessage': null,
     };
   }
 }
