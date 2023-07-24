@@ -10,15 +10,16 @@ A Flutter project.
 #### 4. MVC Design Pattern
 
 # Application Images
-<img src= "https://github.com/anaskhalil123/firebase_chat_youtube---Copy/assets/64696058/895501da-70c2-489d-92df-e009226be808" width="30%" height="40%" />
-<img src="https://github.com/anaskhalil123/firebase_chat_youtube---Copy/assets/64696058/12ff8f15-0601-4279-aa2a-86f1b5d39d42" width = "30%" height="40%" /> <img src ="https://github.com/anaskhalil123/firebase_chat_youtube---Copy/assets/64696058/750c090d-7c7e-47df-a94e-2c7aa77e2e7b" width="30%" height="40%" />
 
-<img src="https://github.com/anaskhalil123/firebase_chat_youtube---Copy/assets/64696058/096fc2c9-a5b5-44a8-9ec5-70db81427634" width="30%" height="40%" /> <img src="https://github.com/anaskhalil123/firebase_chat_youtube---Copy/assets/64696058/890b569e-dd50-43b3-9fd0-f0c727d25b3c" width="30%" height="40%" /> <img src="https://github.com/anaskhalil123/firebase_chat_youtube---Copy/assets/64696058/a934a115-89e7-4706-9560-ccfa0381ea7d" width="30%" height="40%" />
+<img src= "https://github.com/anaskhalil123/Lets-Chat-Application/assets/64696058/3a26c94b-e3b5-49f7-86da-6dfc35b6f285" width="30%" height="40%" />
+<img src="https://github.com/anaskhalil123/Lets-Chat-Application/assets/64696058/52854c93-19c8-4c18-863d-5d2ebf673221" width = "30%" height="40%" /> <img src ="https://github.com/anaskhalil123/Lets-Chat-Application/assets/64696058/f5d70a52-7fd8-4387-aa12-ae235db13967" width="30%" height="40%" />
+
+<img src="https://github.com/anaskhalil123/Lets-Chat-Application/assets/64696058/44153c76-8d6d-4f83-b752-9b6b2de96484" width="30%" height="40%" /> <img src="https://github.com/anaskhalil123/Lets-Chat-Application/assets/64696058/c55ef396-f4dd-4c3f-b3dc-f48243ab60f8" width="30%" height="40%" /> <img src="https://github.com/anaskhalil123/Lets-Chat-Application/assets/64696058/b1ddac5c-1a49-49fa-bff6-97ccfc4b8fce" width="30%" height="40%" />
 
 
-<img src="https://github.com/anaskhalil123/firebase_chat_youtube---Copy/assets/64696058/4a0fd317-1e57-456c-b769-0b7f865ccb5f" width="30%" height="40%" /> <img src="https://github.com/anaskhalil123/firebase_chat_youtube---Copy/assets/64696058/fe7e71f8-e06a-4865-9e54-f8550a3d3480" width="30%" height="40%" /> <img src="https://github.com/anaskhalil123/firebase_chat_youtube---Copy/assets/64696058/eb6d45e2-cb25-4b21-af81-31d41eb7a701" width="30%" height="40%" />
+<img src="https://github.com/anaskhalil123/firebase_chat_youtube---Copy/assets/64696058/90884846-a1d7-4308-a9a3-ac7f948c7a4e" width="30%" height="40%" /> <img src="https://github.com/anaskhalil123/firebase_chat_youtube---Copy/assets/64696058/f866ae93-16b7-4363-b636-40440f68cfa9" width="30%" height="40%" /> <img src="https://github.com/anaskhalil123/firebase_chat_youtube---Copy/assets/64696058/c2b93fe5-4173-4b5c-92bc-421266443417" width="30%" height="40%" />
 
-<img src="https://github.com/anaskhalil123/firebase_chat_youtube---Copy/assets/64696058/51030167-e30a-4d98-bb0f-c537972253a3" width="30%" height="40%" />
+<img src="https://github.com/anaskhalil123/firebase_chat_youtube---Copy/assets/64696058/45cdf5f8-3024-4764-a5a6-898500ccdd53" width="30%" height="40%" />
 
 
 
